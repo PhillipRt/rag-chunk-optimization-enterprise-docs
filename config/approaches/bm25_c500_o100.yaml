@@ -1,0 +1,15 @@
+# BM25 configuration (c500, o100) - Small chunks
+name: "bm25_rag_c500_o100"
+description: "BM25 retrieval baseline with small chunks (chunk_size=500, chunk_overlap=100)"
+
+# Retriever configuration
+retriever:
+  type: "bm25"
+  chunk_size: 500
+  chunk_overlap: 100
+  min_score_threshold: 0.0
+  
+  # Standard BM25 parameters
+  k1: 1.5
+  b: 0.75
+  epsilon: 0.25 

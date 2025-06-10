@@ -1,0 +1,15 @@
+# BM25 configuration (c2000, o400) - Large chunks
+name: "bm25_rag_c2000_o400"
+description: "BM25 retrieval baseline with large chunks (chunk_size=2000, chunk_overlap=400)"
+
+# Retriever configuration
+retriever:
+  type: "bm25"
+  chunk_size: 2000
+  chunk_overlap: 400
+  min_score_threshold: 0.0
+  
+  # Standard BM25 parameters
+  k1: 1.5
+  b: 0.75
+  epsilon: 0.25 

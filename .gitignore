@@ -1,0 +1,77 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv/
+ENV/
+test_venv/
+
+# Environment variables and secrets
+.env
+*.pem
+*.key
+*.crt
+*.json
+!package.json
+!package-lock.json
+
+# Additional safety for sensitive files
+**/secrets/**
+**/*secret*
+**/*credential*
+**/*token*
+*.p12
+*.pfx
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+CLAUDE.md
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Data and results directories (often containing sensitive information)
+data/**
+results/
+logs/
+evaluation_results/
+ragas_cache/
+synthetic_data_output/
+
+# Cache directories for retrievers
+cache/
+**/cache/
+**/.cache/
+tests/cache/
+
+# Test-related temporary files
+.coverage
+.pytest_cache/
+htmlcov/
+
+# But keep the directory structure
+!data/.gitkeep
+!data/**/
+!data/**/.gitkeep
+!cache/.gitkeep
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+!colab/embedding_server.ipynb
+!colab/dataset_preprocessing_synthetic_data_generation.ipynb
+!colab/Studie_Data_Analysis.ipynb
+!colab/Studie_Data_Analysis_txt_only.ipynb
+# Do not ignore these files specifically
+!requirements.txt
+!README.md
+!.env.example

@@ -1,0 +1,15 @@
+# Property Graph configuration using LlamaIndex PropertyGraphIndex
+name: "property_graph_rag"
+description: "Property Graph RAG using LlamaIndex and Gemini"
+
+# Retriever configuration
+retriever:
+  type: "property_graph" # Use the new PropertyGraphRetriever
+  llm_model: "gemini-2.0-flash" # LLM for graph construction and querying
+  embedding_model: "models/text-embedding-004" # Embedding model
+  cache_dir: "cache/property_graph_indices" # Separate cache directory
+  chunk_size: 1000 # Chunk size for processing documents (if not handled internally by index)
+  chunk_overlap: 200 # Chunk overlap
+
+# Use default generation settings from base_config.yaml
+# Use default evaluation settings from base_config.yaml

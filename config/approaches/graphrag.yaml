@@ -1,0 +1,19 @@
+# GraphRAG configuration using Gemini Embeddings and DeepSeek Chat
+name: "graphrag_gemini_deepseek"
+description: "GraphRAG implementation using Gemini embeddings and DeepSeek chat model"
+
+# Retriever configuration
+retriever:
+  type: "graphrag"
+  # GraphRAG specific settings are configured within the retriever class,
+  # but we can pass some high-level options here.
+  retriever_config:
+    query_mode: "local" # Options: "local", "global", "drift"
+    response_type: "Multiple Paragraphs" # Optional: Define desired response format
+    cache_path_root: "cache" # Root directory for GraphRAG specific cache
+    indexing_doc_limit: 5 # Limit indexing to the first N documents (set to null or remove to index all)
+
+# Use default generation settings from base_config.yaml
+# Generation LLM (e.g., Gemini Flash) is configured in base_config.yaml or overridden there.
+# The LLMs used *within* GraphRAG (DeepSeek, Gemini) are configured via environment variables
+# and handled by the GraphRAGRetriever class.

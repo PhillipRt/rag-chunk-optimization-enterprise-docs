@@ -1,0 +1,26 @@
+# Hybrid Retrieval with Reranking configuration
+name: "hybrid_rag"
+description: "Hybrid retrieval combining BM25 and dense retrieval with reranking"
+
+# Retriever configuration
+retriever:
+  type: "hybrid"
+  k_bm25: 10  # Number of results from BM25
+  k_dense: 10  # Number of results from dense retriever
+  weight_bm25: 0.4  # Weight for BM25 scores
+  weight_dense: 0.6  # Weight for dense scores
+  
+  # Dense retriever configuration - using Gemini embeddings
+  dense_retriever:
+    type: "gemini"
+    model_name: "text-embedding-004"
+    chunk_size: 1000
+    chunk_overlap: 200
+    cache_dir: "cache/vector_stores/hybrid_gemini"
+  
+  # Reranker configuration
+  reranker:
+    type: "cohere"
+    api_key: ${COHERE_API_KEY}  # From environment variable
+    model: "rerank-english-v2.0"
+    top_n: 10

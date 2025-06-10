@@ -1,0 +1,17 @@
+# Pure BM25 Retriever Configuration
+name: "bm25_rag"
+description: "Pure BM25 retrieval baseline using rank_bm25 library"
+
+# Retriever configuration
+retriever:
+  type: "bm25"  # Will use the BM25Retriever class
+  chunk_size: 1000  # Same as other approaches for fair comparison
+  chunk_overlap: 200  # Same as other approaches for fair comparison
+  min_score_threshold: 0.0  # Minimum score threshold (0.0 means no filtering)
+  
+  # BM25 specific parameters (optional, will use defaults if not specified)
+  k1: 1.5  # Controls term frequency saturation (default: 1.5)
+  b: 0.75  # Controls document length normalization (default: 0.75)
+  epsilon: 0.25  # Smoothing parameter (default: 0.25)
+
+# Use default generation settings from base_config.yaml

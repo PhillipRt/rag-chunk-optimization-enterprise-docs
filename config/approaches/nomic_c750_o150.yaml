@@ -1,0 +1,13 @@
+# Nomic embeddings configuration (c750, o150)
+name: "nomic_rag_c750_o150"
+description: "RAG implementation with Nomic multilingual embeddings (chunk_size=750, chunk_overlap=150)"
+
+# Retriever configuration
+retriever:
+  type: "embedding"
+  model_name: "nomic"  # Must match the name in your API
+  # api_url and auth_token will be injected from environment variables by ExperimentManager
+  chunk_size: 750
+  chunk_overlap: 150
+  cache_dir: "cache/vector_stores/nomic"
+  is_query: false  # Default to document mode for indexing

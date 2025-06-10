@@ -1,0 +1,14 @@
+# Standard RAG configuration (c750, o150)
+name: "standard_rag_c750_o150"
+description: "Standard RAG implementation with E5 embeddings (chunk_size=750, chunk_overlap=150)"
+
+# Retriever configuration
+retriever:
+  type: "embedding"
+  model_name: "e5"
+  # api_url and auth_token will be injected from environment variables by ExperimentManager
+  chunk_size: 750
+  chunk_overlap: 150
+  cache_dir: "cache/vector_stores"
+
+# Use default generation settings from base_config.yaml

@@ -1,0 +1,12 @@
+# BGE-M3 configuration (c2000, o400)
+name: "bge_m3_rag_c2000_o400"
+description: "RAG implementation with BGE-M3 multilingual embeddings (chunk_size=2000, chunk_overlap=400)"
+
+# Retriever configuration
+retriever:
+  type: "embedding"
+  model_name: "bge-m3"  # Must match the name in your API
+  # api_url and auth_token will be injected from environment variables by ExperimentManager
+  chunk_size: 2000
+  chunk_overlap: 400
+  cache_dir: "cache/vector_stores/bge-m3"

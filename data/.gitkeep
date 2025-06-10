@@ -1,0 +1,2 @@
+# This file ensures that the directory structure is preserved in Git
+# The actual data files should be excluded from version control 

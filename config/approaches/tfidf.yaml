@@ -1,0 +1,13 @@
+# TF-IDF Baseline configuration
+name: "tfidf_rag"
+description: "Simple TF-IDF baseline for RAG comparison"
+
+# Retriever configuration
+retriever:
+  type: "tfidf"  # Will use the TFIDFRetriever class
+  max_features: 5000  # Maximum number of terms in the vocabulary
+  ngram_range: [1, 2]  # Use unigrams and bigrams
+  chunk_size: 1000  # Same as other approaches for fair comparison
+  chunk_overlap: 200  # Same as other approaches for fair comparison
+
+# Use default generation settings from base_config.yaml

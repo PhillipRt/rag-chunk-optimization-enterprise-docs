@@ -1,0 +1,13 @@
+# Gemini Embedding configuration (c3000, o600)
+name: "gemini_rag_c3000_o600"
+description: "RAG implementation with Google's Gemini embedding model (chunk_size=3000, chunk_overlap=600)"
+
+# Retriever configuration
+retriever:
+  type: "gemini"  # Will use the GeminiRetriever class
+  model_name: "text-embedding-004"  # Use text-embedding-004 which is confirmed working
+  chunk_size: 3000
+  chunk_overlap: 600
+  cache_dir: "cache/vector_stores/gemini"
+
+# Use default generation settings from base_config.yaml

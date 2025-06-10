@@ -1,0 +1,37 @@
+# Graph-based RAG configuration
+name: "graph_rag"
+description: "Knowledge graph-based retrieval using LlamaIndex with Gemini embeddings"
+
+# Retriever configuration
+retriever:
+  type: "graph"
+  llm_model: "gemini-2.0-flash"  # Model for entity extraction and querying
+  cache_dir: "cache/graph_indices"
+  max_triplets_per_chunk: 10
+  include_embeddings: true  # Include embeddings for hybrid retrieval
+  embedding_model: "text-embedding-004"  # Gemini embedding model
+  
+  # Custom entity extraction prompt template (optional)
+  entity_extract_template: |
+    Given the following text, extract entities and relationships between them.
+    Focus on SAP Business One specific concepts, technical terms, and relationships.
+    
+    Text: {text}
+    
+    Instructions:
+    1. Identify key entities (people, organizations, products, concepts, technical terms)
+    2. For each entity, determine its relationships with other entities
+    3. Output in the following format:
+       entity1[relationship]entity2
+       
+    For example:
+    - SAP Business One[is a]ERP system
+    - Crystal Reports[is integrated with]SAP Business One
+    - Add-ons[extend]SAP Business One functionality
+    
+    Extracted entities and relationships:
+
+# Generation configuration
+generation:
+  model: "gemini-2.0-flash"
+  temperature: 0.5

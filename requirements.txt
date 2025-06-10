@@ -1,0 +1,38 @@
+# Core dependencies
+langchain>=0.1.0
+langchain-google-genai>=0.0.5
+langchain-google-vertexai>=0.0.1
+langchain-openai>=0.0.5
+langchain-community>=0.0.5
+faiss-cpu>=1.7.4
+pandas>=2.0.0
+pyyaml>=6.0
+python-dotenv>=1.0.0
+tqdm>=4.65.0
+ragas>=0.2.0
+sentence_transformers
+# Evaluation dependencies
+google-cloud-aiplatform>=1.36.0
+vertexai>=0.0.1
+
+# Retrieval approach dependencies
+llama-index # Remove version constraint to allow uv to find compatible versions
+# Replace deprecated Google packages with newer Google GenAI ones
+google-generativeai # Add underlying SDK explicitly for Gemini
+llama-index-llms-google-genai
+llama-index-embeddings-google-genai
+llama-index-embeddings-langchain
+llama-index-llms-langchain
+rank-bm25>=0.2.2
+graphrag # Add GraphRAG dependency
+
+# For notebook and visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+pyvis
+# Testing dependencies
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.1

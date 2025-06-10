@@ -1,0 +1,43 @@
+# Base configuration for all experiments
+
+# Data paths and settings
+data:
+  cache_dir: "cache/documents"
+  documents_dir: "data/documents"
+  synthetic_data_dir: "data/synthetic_data"
+  evaluation_dir: "data/evaluation"
+  approaches_dir: "config/approaches" # Directory containing approach-specific configs
+
+# Default generation settings
+generation:
+  model: "gemini-2.0-flash"
+  temperature: 0.7
+  prompt_template: |
+    Answer the following question based on the provided context.
+
+    Context:
+    {context}
+
+    Question: {question}
+
+    Answer:
+
+# Default evaluation settings
+evaluation:
+  llm_model: "deepseek-chat"
+  embedding_model: "text-embedding-004" # Use shorter name for VertexAIEmbeddings
+  cache_dir: "cache/ragas"
+  metrics:
+    # Using multiple answer quality metrics for comprehensive evaluation
+    - "nv_accuracy"          # NVIDIA metric: Measures agreement between response and reference using dual LLM-as-judge (token efficient)
+    - "answer_correctness"   # Evaluates factual correctness compared to the reference using factual overlap (TP/FP/FN)
+    - "factual_correctness"  # Similar to answer_correctness but with more control over claim decomposition
+    - "faithfulness"         # Measures factual consistency by verifying if claims in the answer are inferred from the context
+    - "context_precision"    # Evaluates if the most relevant context chunks appear at the top ranks using average precision
+    - "context_recall"       # Assesses if the retrieved context contains the key information needed to answer the question
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "logs/rag_evaluation.log"
+  console: true

@@ -1,0 +1,12 @@
+# Random Retriever Configuration
+name: "random_rag"
+description: "Random baseline that selects documents completely at random"
+
+# Retriever configuration
+retriever:
+  type: "random"
+  seed: 42  # Random seed for reproducibility
+  chunk_size: 1000  # Same as other approaches for fair comparison
+  chunk_overlap: 200  # Same as other approaches for fair comparison
+
+# Use default generation settings from base_config.yaml

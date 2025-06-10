@@ -1,0 +1,11 @@
+# TF-IDF configuration (c500, o100) - Small chunks
+name: "tfidf_rag_c500_o100"
+description: "TF-IDF baseline with small chunks (chunk_size=500, chunk_overlap=100)"
+
+# Retriever configuration
+retriever:
+  type: "tfidf"
+  max_features: 5000
+  ngram_range: [1, 2]
+  chunk_size: 500
+  chunk_overlap: 100 

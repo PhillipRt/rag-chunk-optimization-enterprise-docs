@@ -1,0 +1,12 @@
+# Adversarial Retriever Configuration
+name: "adversarial_rag"
+description: "Adversarial baseline that deliberately selects the least relevant documents"
+
+# Retriever configuration
+retriever:
+  type: "adversarial"
+  max_features: 5000  # Maximum number of terms in the vocabulary
+  chunk_size: 1000  # Same as other approaches for fair comparison
+  chunk_overlap: 200  # Same as other approaches for fair comparison
+
+# Use default generation settings from base_config.yaml
